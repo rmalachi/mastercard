@@ -9,9 +9,6 @@
   tasks:
   - name: Set DB
       community.windows.win_iis_webapppool:
-        name: AppPoolName
+        name: mcproj
         state: present
-        managed_pipeline_mode: Integrated
-        start_mode: AlwaysRunning
-        identity_type: ApplicationPoolIdentity
-
+        
