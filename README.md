@@ -46,28 +46,45 @@ Implement an auto-scaling group for future scalability
 
 ## Appendix A: Application & IIS Configuration Requirements
 
-IIS futures and requarements:
+### IIS futures and requarements:
+
         "Web-Server"
+        
         "Web-Mgmt-Console"
+        
         "NET-Framework-Features"
+        
         "Web-Asp-Net45"
+        
         "NET-WCF-TCP-PortSharing45"
+        
         "Web-Asp"
+        
         "Web-Windows-Auth"
+        
         "Web-Http-Redirect"
+        
         “dotnet-hosting-8.0.16-win”
+        
         “AWS CLI v.2”
-Local environment variables on sytem level:
-      Variable name: “CQ_DB_LIST”
-      Variable value: “{"Secrets":[{"Name": "secrets key name","Region": "us-east-2}]}”
-Secrets key must contains:
+        
+### Local environment variables on sytem level:
+
+      __Variable__ name: “CQ_DB_LIST”
+      
+      __Variable__ value: “{"Secrets":[{"Name": "secrets key name","Region": "us-east-2}]}”
+      
+### Secrets key must contains:
+
      “username”: ”RDS admin user”
      “password”: “RDS password”
      “port”: ”RDS db access port”
      “url”: ”RDS db DNS address”
      “name”: ”RDS db instance name”
-IIS application configutarion:
+### IIS application configutarion:
+
    wwwroot\LogViewer\appConfig.json
+   
     {
         "apiUrl": "https://load balancer external DNS domain name /CytegicLoggerAPI/api",
         "version":  "1.0.0.1"
