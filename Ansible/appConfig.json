@@ -1,5 +1,3 @@
-// IIS application configutarion:
-// wwwroot\LogViewer\appConfig.json
 {
     "apiUrl": "https://load balancer external DNS domain name /CytegicLoggerAPI/api",
     "version":  "1.0.0.1"
