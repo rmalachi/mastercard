@@ -1,6 +1,6 @@
-#Secrets key must contains:
-username : admin
-password: admin12345
+---
+db_user: admin
+db_password: <encripted with Ansible  vault>
 port: 1433
-url: rds db dns address
-name: mssql-server
+db_url: rds db dns address
+db_name: mssql-server
