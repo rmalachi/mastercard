@@ -1,0 +1,17 @@
+- name: Database Configuration
+- hosts: databases
+  remote_user: root
+
+  vars:
+    port: 1433
+    endpoint: mssql-server.cnc6o6ey2889.us-east-1.rds.amazonaws.com
+  
+  tasks:
+  - name: Set DB
+      community.windows.win_iis_webapppool:
+        name: AppPoolName
+        state: present
+        managed_pipeline_mode: Integrated
+        start_mode: AlwaysRunning
+        identity_type: ApplicationPoolIdentity
+

@@ -1,0 +1,40 @@
+- name: Server Configuration
+- hosts: webservers
+  remote_user: root
+
+  vars:
+    tablename: foo
+    tableowner: someuser
+  
+  tasks:
+  - name: Create application pool
+      community.windows.win_iis_webapppool:
+        name: AppPoolName
+        state: present
+        managed_pipeline_mode: Integrated # or Classic
+        start_mode: AlwaysRunning
+        identity_type: ApplicationPoolIdentity # or SpecificUser
+
+  - name: Create IIS website
+    community.windows.win_iis_website:
+      name: WebsiteName
+      state: started
+      port: 80
+      path: C:\inetpub\wwwroot\AppFolder
+      application_pool: AppPoolName
+
+  - name: Copy application files
+    win_copy:
+      src: /path/to/app_build_folder/
+      dest: C:\inetpub\wwwroot\AppFolder
+
+  - name: Create IIS application
+    community.windows.win_iis_webapplication:
+      name: ApplicationName
+      website: WebsiteName
+      path: /ApplicationName
+      physical_path: C:\inetpub\wwwroot\AppFolder
+      application_pool: AppPoolName
+
+
+

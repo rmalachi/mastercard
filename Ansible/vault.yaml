@@ -1,0 +1,6 @@
+#Secrets key must contains:
+username : admin
+password: admin12345
+port: 1433
+url: rds db dns address
+name: mssql-server
